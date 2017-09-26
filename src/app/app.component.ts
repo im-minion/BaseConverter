@@ -61,4 +61,17 @@ export class AppComponent {
       this.o = 0;
     }
   };
+
+  hexaChanged = function (oldValue, newValue) {
+    // console.log(newValue);
+    this.h = this.h + 1;
+    if (this.h === 1) {
+      if (newValue !== '') {
+        this.form.patchValue({decimal: parseInt(newValue, 16).toString(10)});
+      } else {
+        this.form.patchValue({decimal: ''});
+      }
+      this.h = 0;
+    }
+  };
 }
